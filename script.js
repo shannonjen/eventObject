@@ -5,11 +5,18 @@ var images = {
 }
 var greeting = document.querySelector(".greeting");
 var sentence = ""
-window.addEventListener("keypress", function(event){
-  // sentence = sentence + event.key;
-  // greeting.textContent = sentence;
+window.addEventListener("keydown", function(event){
 
-    document.querySelector("img").setAttribute("src", images[event.key])
+  if (event.key == "Backspace"){
+    sentence = sentence.slice(0,-1);
+    //console.log("You hit delete")
+  } else {
+    sentence = sentence + event.key;
+  }
 
-//  console.log(event.key);
+  greeting.textContent = sentence;
+
+    // document.querySelector("img").setAttribute("src", images[event.key])
+
+
 })
